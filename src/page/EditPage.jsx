@@ -7,8 +7,8 @@ const EditPage = () => {
     const data = useLoaderData()
 
     return (
-        <section className="flex justify-center items-center rounded-lg mt-56">
-            <div className="border shadow-lg w-1/4 p-8">
+        <section className="flex justify-center items-center rounded-lg mt-56 px-8">
+            <div className="border shadow-lg lg:w-1/2 xl:w-1/4 w-full p-8">
                 <Form id={editId} nama={data.nama} username={data.username} hobi={data.hobi}/>
             </div>
         </section>
