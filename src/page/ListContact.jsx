@@ -18,7 +18,7 @@ const ListContact = () => {
 
     return (
         <>
-            <section className="flex justify-center my-56">
+            <section className="flex justify-center items-center h-screen px-3">
                 <div className="lg:w-1/2 w-full mx-10 border shadow-lg p-5">
                     <h1 className="text-2xl text-center font-semibold mb-6">List Contact</h1>
                     <div className="overflow-x-auto">

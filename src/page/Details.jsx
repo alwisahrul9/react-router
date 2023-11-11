@@ -1,9 +1,21 @@
 import axios from "axios"
-import { Link, useNavigate, useParams, useLoaderData } from "react-router-dom"
+import { Link, useNavigate, useLoaderData } from "react-router-dom"
+
+
+// Loader Function
+export const detailsLoader = async ({ params }) => {
+    const baseUrl = import.meta.env.VITE_BASEURL
+
+    const { detailsId } = params
+
+    const res = await axios.get(`${baseUrl}/${detailsId}`)
+
+    return res.data.data
+
+}
 
 const Details = () => {
 
-    const { detailsId } = useParams()
     const data = useLoaderData()
 
     const navigate = useNavigate()
@@ -25,9 +37,9 @@ const Details = () => {
 
     return (
         <>
-            <section className="flex justify-center mt-56">
-                <div className="lg:w-1/2 w-screen mx-6 border shadow-lg p-5 relative">
-                    <div className="absolute right-4 flex flex-wrap gap-6">
+            <section className="flex justify-center items-center h-screen">
+                <div className="lg:w-1/2 w-screen mx-3 border shadow-lg p-5 relative">
+                    <div className="absolute right-4 flex flex-wrap gap-2">
                         <Link to={`edit/${data.id}`}>
                             <button>
                                 <svg className="w-8 h-8 text-blue-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -52,18 +64,6 @@ const Details = () => {
             </section>
         </>
     )
-}
-
-// Loader Function
-export const detailsLoader = async ({ params }) => {
-    const baseUrl = import.meta.env.VITE_BASEURL
-
-    const { detailsId } = params
-
-    const res = await axios.get(`${baseUrl}/${detailsId}`)
-
-    return res.data.data
-
 }
 
 export default Details
